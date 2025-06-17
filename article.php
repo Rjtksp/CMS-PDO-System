@@ -9,7 +9,7 @@ include "partials/hero.php";
     <!-- Featured Image -->
     <div class="mb-4">
         <img
-            src="https://via.placeholder.com/1200x600"
+            src="https://dummyjson.com/image/350x200/333333/eae0d0"
             class="img-fluid w-100"
             alt="Featured Image"
         >
