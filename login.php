@@ -2,6 +2,20 @@
 include "partials/header.php"; 
 include "partials/navbar.php"; 
 include "partials/hero.php"; 
+
+if(isPostRequest()){
+    $email = getPostData('email');
+    $password = getPostData('password');
+
+    $user = new User();
+    if($user->login($email, $password)){
+        redirect('admin.php');
+    }else{
+        echo "Login Failed!";
+    }
+
+}
+
 ?>
 
 <!-- Main Content -->
@@ -9,10 +23,11 @@ include "partials/hero.php";
     <h2 class="text-center mb-4">Login</h2>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form action="dashboard.html" method="post">
+            <form method="post">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address *</label>
                     <input
+                        name="email"
                         type="email"
                         class="form-control"
                         id="email"
@@ -22,6 +37,7 @@ include "partials/hero.php";
                 <div class="mb-3">
                     <label for="password" class="form-label">Password *</label>
                     <input
+                        name="password"
                         type="password"
                         class="form-control"
                         id="password"
