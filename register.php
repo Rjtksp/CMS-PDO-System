@@ -1,7 +1,21 @@
 <?php 
 include "partials/header.php"; 
 include "partials/navbar.php"; 
-include "partials/hero.php"; 
+include "partials/hero.php";
+
+if(isPostRequest()){
+    $username = getPostData('username');
+    $email = getPostData('email');
+    $password = getPostData('password');
+
+    $user = new User();
+    if($user->register($username, $email, $password)){
+        return redirect('login.php');
+    }else{
+        echo "Registration Failed!";
+    }
+}
+
 ?>
 
 <!-- Main Content -->
@@ -9,19 +23,21 @@ include "partials/hero.php";
     <h2 class="text-center mb-4">Register</h2>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form action="welcome.php" method="post">
+            <form method="post">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Full Name *</label>
+                    <label for="username" class="form-label">Username *</label>
                     <input
+                        name="username"
                         type="text"
                         class="form-control"
-                        id="name"
+                        id="username"
                         required
                     >
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address *</label>
                     <input
+                        name="email"
                         type="email"
                         class="form-control"
                         id="email"
@@ -31,6 +47,7 @@ include "partials/hero.php";
                 <div class="mb-3">
                     <label for="password" class="form-label">Password *</label>
                     <input
+                        name="password"
                         type="password"
                         class="form-control"
                         id="password"
@@ -40,6 +57,7 @@ include "partials/hero.php";
                 <div class="mb-3">
                     <label for="confirm-password" class="form-label">Confirm Password *</label>
                     <input
+                        name="confirm_password"
                         type="password"
                         class="form-control"
                         id="confirm-password"
