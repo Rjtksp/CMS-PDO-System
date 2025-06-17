@@ -26,7 +26,7 @@ include "partials/hero.php";
                 src="https://templates-flatlogic.herokuapp.com/sing-app/html5/demo/img/people/a5.jpg"
                 class="rounded-circle mb-3"
                 alt="Team Member"
-                height="300"
+                height="200"
             >
             <h5>Rajat Kashyap</h5>
             <p class="text-muted">Founder & Editor</p>
@@ -37,7 +37,7 @@ include "partials/hero.php";
                 src="https://organicthemes.com/demo/profile/files/2018/05/profile-pic.jpg"
                 class="rounded-circle mb-3"
                 alt="Team Member"
-                height="300"
+                height="200"
             >
             <h5>Rose Diaz</h5>
             <p class="text-muted">Content Writer</p>
@@ -48,7 +48,7 @@ include "partials/hero.php";
                 src="https://www.electricallicenserenewal.com/app-assets/images/user/12.jpg"
                 class="rounded-circle mb-3"
                 alt="Team Member"
-                height="300"
+                height="200"
             >
             <h5>Maria Gonzalez</h5>
             <p class="text-muted">Graphic Designer</p>
