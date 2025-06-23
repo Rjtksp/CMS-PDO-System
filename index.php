@@ -9,37 +9,38 @@ $articles = $article->getArticles();
 ?>
 
 <!-- Main Content -->
-<main class="container my-5">
+<main class="container mt-5">
     <?php if(!empty($articles)): ?>
-        <?php foreach($articles as $article): ?>
+        <?php foreach($articles as $articleItem): ?>
 
         <!-- Articles -->
-        <div class="row mb-4">
+        <div class="row mb-5">
             <div class="col-md-4">
-                <?php if(!empty($article->image)): ?>
+                <?php if(!empty($articleItem->image)): ?>
                     <img
-                        src="<?php echo htmlspecialchars($article->image); ?>"
+                        src="<?php echo htmlspecialchars($articleItem->image); ?>"
                         class="img-fluid"
                         alt="Blog Post Image"
+                        style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; height: 225px;"
                     >
                 <?php else: ?>
                     <img
                         src="https://dummyjson.com/image/350x200/333333/eae0d0"
                         class="img-fluid"
                         alt="Blog Post Image"
+                        style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; height: 225px;"
                     >
                 <?php endif; ?>
             </div>
-            <div class="col-md-8">
-                <h2><?php echo htmlspecialchars($article->title); ?></h2>
-                <p><?php echo htmlspecialchars($article->content); ?></p>
-                <a href="article.php?id=<?php echo $article->id; ?>" class="btn btn-primary">Read More</a>
+            <div class="col-md-8"  style="box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; padding: 25px; border-radius: 10px;">
+                <h2><?php echo htmlspecialchars($articleItem->title); ?></h2>
+                <p style="text-align:justify;"><?php echo htmlspecialchars($article->getExcerpt($articleItem->content, 200)); ?></p>
+                <a href="article.php?id=<?php echo $articleItem->id; ?>" class="btn btn-primary">Read More</a>
             </div>
         </div>
 
         <?php endforeach; ?>
     <?php endif; ?>
 </main>
-
 
 <?php include "partials/footer.php"; ?>
