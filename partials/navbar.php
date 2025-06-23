@@ -1,7 +1,10 @@
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">CMS PDO System</a>
+            <!-- <h1><a class="navbar-brand logo-animate" href="index.php">QuietPress</a></h1> -->
+            <h1 class="logo-layered">
+                <a href="index.php">QuietPress</a>
+            </h1>
             <button
                 class="navbar-toggler"
                 type="button"
