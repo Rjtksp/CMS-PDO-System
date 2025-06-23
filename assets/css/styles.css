@@ -1,11 +1,61 @@
-footer {
-    /* position: fixed; */
-    /* height: 100px; */
-    /* bottom: 0; */
-    width: 100%;
-    margin-top: 100px;
+* {
+  font-family: 'Merriweather', serif;
 }
 
-main.container {
-    margin-bottom: 150px!important;
+#changing-word {
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#changing-word.show {
+  opacity: 1;
+}
+
+.lead{
+    font-size: 25px;
+}
+
+.logo-layered a {
+  position: relative;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  display: inline-block;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Layered shadow text for 3D depth */
+.logo-layered a::before,
+.logo-layered a::after {
+  content: "QuietPress";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.logo-layered a::before {
+  color: #6ee7ff;
+  transform: translate(3px, 3px);
+  filter: blur(2px);
+}
+
+.logo-layered a::after {
+  color: #000;
+  transform: translate(6px, 6px);
+  filter: blur(4px);
+}
+
+/* Hover 3D tilt effect */
+.logo-layered a:hover {
+  transform: rotateX(8deg) rotateY(-12deg) scale(1.05);
+}
+
+footer {
+    width: 100%;
+    margin-top: 100px;
 }
