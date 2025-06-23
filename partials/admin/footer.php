@@ -1,7 +1,7 @@
     <!-- Footer -->
     <footer class="bg-dark text-white py-3 mt-auto">
         <div class="container text-center">
-            <p class="mb-0">&copy; 2025 CMS PDO System. All rights reserved by Rajat Kashyap.</p>
+            <p class="mb-0">&copy; 2025 CMS PDO System. All rights reserved by QuietPress.</p>
         </div>
     </footer>
 
@@ -15,8 +15,6 @@
     <script>
         function confirmDelete(articleId) {
             if (confirm('Are you sure you want to delete this article?')) {
-                // Implement deletion logic here
-                // For example, make an AJAX request to delete the article
                 alert('Article ' + articleId + ' deleted.');
             }
         }
