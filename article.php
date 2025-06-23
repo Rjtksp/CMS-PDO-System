@@ -2,46 +2,43 @@
 include "partials/header.php"; 
 include "partials/navbar.php"; 
 include "partials/hero.php"; 
+
+$articleId = isset($_GET['id']) ? $_GET['id'] : null;
+if($articleId){
+    $article = new Article();
+    $articles = $article->getArticleById($articleId);
+}else{
+    echo "Article not found!";
+    exit;
+}
 ?>
 
 <!-- Main Content -->
 <main class="container my-5">
+    <h2 class="text-center mb-5"><?php echo $articles->title;?></h2>
+    
     <!-- Featured Image -->
     <div class="mb-4">
-        <img
-            src="https://dummyjson.com/image/350x200/333333/eae0d0"
-            class="img-fluid w-100"
-            alt="Featured Image"
-        >
+        <?php if(!empty($articles->image)): ?>
+            <img
+                src="<?php echo $articles->image; ?>"
+                class="img-fluid w-100"
+                alt="Featured Image"
+                style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;"
+            >
+        <?php else: ?>
+            <img
+                src="https://dummyjson.com/image/350x200/333333/eae0d0"
+                class="img-fluid w-100"
+                alt="Featured Image"
+                style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;"
+            >
+        <?php endif; ?>
     </div>
     <!-- Article Content -->
     <article>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat elit vitae enim lacinia semper. 
-            Sed sollicitudin, nunc at elementum luctus, quam urna dignissim ipsum, ac tristique sapien arcu non ligula.
-        </p>
-        <p>
-            Quisque fermentum, nisl a pulvinar tincidunt, nunc purus laoreet massa, nec tempor arcu urna vel nisi. 
-            Suspendisse potenti. Duis ornare, risus non commodo bibendum, sapien turpis feugiat ligula, ut aliquam sapien urna eget est.
-        </p>
-        <h2>Subheading 1</h2>
-        <p>
-            Maecenas non nunc nec nisi dignissim pretium. Curabitur ac sapien a tellus finibus suscipit. Nullam ac tortor vitae tortor 
-            tempus placerat non a massa.
-        </p>
-        <h2>Subheading 2</h2>
-        <p>
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce id purus at risus consectetur 
-            accumsan. Nam vitae aliquam sapien.
-        </p>
-        <ul>
-            <li>Key point one</li>
-            <li>Key point two</li>
-            <li>Key point three</li>
-        </ul>
-        <p>
-            In hac habitasse platea dictumst. Vivamus euismod, justo at pulvinar pharetra, nisl lorem lacinia lorem, ac bibendum sapien 
-            lectus a nisi.
+        <p style="text-align:justify;">
+            <?php echo htmlspecialchars($articles->content); ?>
         </p>
     </article>
 
@@ -49,7 +46,6 @@ include "partials/hero.php";
     <section class="mt-5">
         <h3>Comments</h3>
         <p>
-            <!-- Placeholder for comments -->
             Comments functionality will be implemented here.
         </p>
     </section>
